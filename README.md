@@ -7,7 +7,8 @@ User, Tweet UserId, tId, ConId
 # Tweet:
 now structure: Tweet{id, tid, title, content, picture, create_time}
 # API:
- tweet,
+
+	tweet,
 	info,
 		GET /tweet/info?tId
 		POST /tweet/info?tId # show all the tweet's content
