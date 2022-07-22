@@ -48,7 +48,7 @@ now structure: Tweet{id, tid, title, content, picture, create_time}
 	Operation,
 		GET /tweet/delete?tId
 		GET /tweet/hide?tId
- User:
+	User:
 	Acc info,
 		GET /user/account?UserId
 		POST /user/account?UserId
@@ -75,7 +75,7 @@ now structure: Tweet{id, tid, title, content, picture, create_time}
 		DELETE /user/likes?tId
 		POST /user/likes?tId
 		POST /user/likes?UserId
- Channel:
+	Channel:
 	home,
 		GET /user/tweet?UserId
 		GET /tweet/?tId
