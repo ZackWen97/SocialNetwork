@@ -4,7 +4,8 @@ API developing as following
 # Service: 
 User, Tweet UserId, tId, ConId
 
-# Nowadays function: Tweet Create, Get all in database & Cache
+# Nowadays function: 
+Tweet Create, Get all in database & Cache
 # Tweet:
 now structure: Tweet{id, tid, title, content, picture, create_time}
 # API:
