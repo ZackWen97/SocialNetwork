@@ -1,13 +1,12 @@
 # SocialNetwork
 a life sharing website
 API developing as following
-#Service:
-#User, Tweet
-# UserId, tId, ConId
-API:
-  Tweet:
-  #now structure:
-  #Tweet{id, tid, title, content, picture, create_time}
+# Service: 
+User, Tweet UserId, tId, ConId
+
+# Tweet:
+now structure: Tweet{id, tid, title, content, picture, create_time}
+# API:
 	info,
 		GET /tweet/info?tId
 		POST /tweet/info?tId # show all the tweet's content
