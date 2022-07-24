@@ -37,9 +37,14 @@ public class TweetController{
 //    }
 // Tweet
     //get tweet info
-    @GetMapping("/tweet/{tId}")
-    public String TweetInfo(@PathVariable Long tId){
-    return String.valueOf(tId);
+    @GetMapping("/tweet/{id}")
+    public Tweet findTweet(@PathVariable Long id) {
+        return dao.findTweetById(id);
+    }
+    @GetMapping("/tweet123/{id}")
+    public void findTweet1(@PathVariable Long id) {
+        System.out.println(String.valueOf(findTweet(id).getContent()));
+        return ;
     }
     //show all tweets
     @GetMapping("/tweet/")
@@ -64,6 +69,10 @@ public class TweetController{
         }
 
         return dao.save(newTweet);
+    }
+    @DeleteMapping("/tweet/{id}")
+    public String remove(@PathVariable Long id)   {
+        return dao.deleteTweet(id);
     }
 //    @GetMapping("/redis/{key}")
 //    private void TestRedis(@PathVariable String key){
@@ -110,14 +119,9 @@ public class TweetController{
 
 
 
-    @GetMapping("/{id}")
-    public Tweet findTweet(@PathVariable Long id) {
-        return dao.findTweetById(id);
-    }
-    @DeleteMapping("/{id}")
-    public String remove(@PathVariable Long id)   {
-        return dao.deleteTweet(id);
-    }
+
+
+
 
     // delete tweet
 //    @DeleteMapping("/tweet/")
