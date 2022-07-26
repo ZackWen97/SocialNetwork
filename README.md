@@ -1,7 +1,7 @@
 # SocialNetwork
 a life sharing website
 API developing as following
-# Service: 
+# Target Service: 
 User, Tweet，Reply
 
 # ER design
