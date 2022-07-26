@@ -2,16 +2,18 @@
 a life sharing website
 API developing as following
 # Service: 
-User, Tweet UserId, tId, ConId
+User, Tweet，Reply
 
 # ER design
 ![image](https://user-images.githubusercontent.com/98070161/181100471-79d36514-df85-439e-8306-8e38158491ff.png)
 
 
 # Nowadays function: 
-Tweet Create, Get all in database & Cache
+Tweet Create, Get all in database & Cache and timeline optimaztion
 # Tweet:
-now structure: Tweet{id, tid, title, content, picture, create_time}
+Current structure: 
+Tweet{id, userId, title, content, picture, create_time}
+
 # API:
 
 	tweet,
