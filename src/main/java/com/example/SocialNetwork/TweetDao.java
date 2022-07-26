@@ -1,14 +1,19 @@
 package com.example.SocialNetwork;
 
-import com.example.SocialNetwork.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class TweetDao {
+    @Autowired
+    tweetDBService dbService;
+
 
     public static final String HASH_KEY = "Tweet";
     @Autowired
@@ -33,4 +38,43 @@ public class TweetDao {
         template.opsForHash().delete(HASH_KEY,id);
         return "tweet removed !!";
     }
+
+    public boolean saveTweet(Tweet tweet) {
+        // save tweet content to db
+        dbService.saveTweetDB(tweet);
+
+        // get all (active) followers
+        Tweet follower_ids = (Tweet) template.opsForHash().get(HASH_KEY, tweet.getId());
+
+
+        //timeline:
+        //{
+        //userId(key): [id1, id2,....]
+
+        //}
+
+        // fan out to all followers' queues
+        //  timeline_12345: [tweet_id_1]
+        // 	timeline_23456: [tweet_id_1]
+        for(int id: follower_ids.getFollowid()) {
+            template.opsForList().leftPush("timeline_" + id, tweet.getId());
+        }
+        return true;
+    }
+
+    public Tweet getTweet(Long tweetId) {
+        Object value = template.opsForHash().get(HASH_KEY, tweetId);
+
+        if(value==null) {
+            Tweet tweet =  dbService.getTweetDB(tweetId);
+            template.opsForHash().put(HASH_KEY,tweet.getId(),tweet);
+        } else {
+            return (Tweet)value;
+        }
+
+    }
+
+
+
+
 }

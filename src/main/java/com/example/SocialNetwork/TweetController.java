@@ -55,13 +55,13 @@ public class TweetController{
     @PostMapping("/tweet/")
     private Tweet newTweet(@RequestBody Tweet newTweet) {
         String id = String.valueOf(newTweet.getId());
-        String tid = String.valueOf(newTweet.getTid());
+        String tid = String.valueOf(newTweet.getUserid());
         String title = newTweet.getTitle();
         String content = newTweet.getContent();
         String picture = newTweet.getPicture();
         Timestamp create_time = newTweet.getCreate_time();
 
-        String sql = "INSERT INTO test (id, tid, title, content, picture, create_time) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO test (id, userId, title, content, picture, create_time) VALUES (?, ?, ?, ?, ?, ?)";
         int result = jdbcTemplate.update(sql, id, tid, title, content, picture, create_time);
 
         if (result > 0) {
