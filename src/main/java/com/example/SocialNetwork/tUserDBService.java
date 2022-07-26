@@ -4,13 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
-public class tweetDBService {
+public class tUserDBService {
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public boolean saveTweetDB(Tweet newTweet) {
+    public boolean saveUserDB(Tweet newTweet) {
         String id = String.valueOf(newTweet.getId());
         String userId = String.valueOf(newTweet.getUserid());
         String title = newTweet.getTitle();
@@ -23,20 +21,4 @@ public class tweetDBService {
 
         return result > 0;
     }
-
-    public Tweet getTweetDB(Tweet tweetId) {
-// JDBC select
-        ArrayList<Tweet> tweets = new ArrayList<Tweet>();
-        jdbcTemplate.query(
-                "SELECT id, tweet_content, tweet_author FROM tweets WHERE id = ?", new Object[] { tweetId },
-                (rs, rowNum)
-                        -> new Tweet(rs.getLong("id"),
-                        rs.getString("tweet_content"),
-                        rs.getLong("tweet_author")).forEach(
-                        tweet -> tweets.append(tweet)
-                );
-
-        return tweets.get(0);
-    }
-
 }

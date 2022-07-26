@@ -44,7 +44,8 @@ public class TweetDao {
         dbService.saveTweetDB(tweet);
 
         // get all (active) followers
-        Tweet follower_ids = (Tweet) template.opsForHash().get(HASH_KEY, tweet.getId());
+        Tweet CurrentTweet = (Tweet) template.opsForHash().get(HASH_KEY, tweet.getId());
+
 
 
         //timeline:

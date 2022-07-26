@@ -1,4 +1,5 @@
 package com.example.SocialNetwork;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ public class tUser {
     private String username;
     private String account;
     private String picture;
+
+    private List<Integer> followid;
 
     tUser() {}
 
@@ -36,6 +39,9 @@ public class tUser {
     public String getPicture() {
         return this.picture;
     }
+    public List<Integer> getFollowid(){
+        return this.followid;
+    };
     public void setid(Long id) {
         this.id = id;
     }

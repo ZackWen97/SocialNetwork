@@ -22,7 +22,8 @@ public class Tweet implements Serializable{
     private String title;
     private String content;
     private String picture;
-    private List<Integer> followid;
+    private
+
     private Timestamp create_time;
 
     Tweet() {}
@@ -53,9 +54,7 @@ public class Tweet implements Serializable{
         java.util.Date today = new java.util.Date();
         return new java.sql.Timestamp(today.getTime());
     }
-    public List<Integer> getFollowid(){
-        return this.followid;
-    };
+
     public void setId(Long id) {
         this.id = id;
     }
