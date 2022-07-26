@@ -4,6 +4,10 @@ API developing as following
 # Service: 
 User, Tweet UserId, tId, ConId
 
+# ER design
+![image](https://user-images.githubusercontent.com/98070161/181100471-79d36514-df85-439e-8306-8e38158491ff.png)
+
+
 # Nowadays function: 
 Tweet Create, Get all in database & Cache
 # Tweet:
