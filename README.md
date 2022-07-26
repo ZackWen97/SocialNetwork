@@ -1,5 +1,5 @@
 # SocialNetwork
-a life sharing website
+a life sharing website, and
 API developing as following
 # Target Service: 
 User, Tweet，Reply
