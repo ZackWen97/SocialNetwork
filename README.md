@@ -105,18 +105,18 @@ Tweet{id, userId, title, content, picture, create_time}
 
 
 # SQL
-create table tweet(
-    id varchar(255) primary key,
-    userId varchar(255),
-    title varchar(255),
-    content varchar(255),
-    picture varchar(255),
-    create_time Timestamp,
-    LikesNum int,
-    Likes varchar(255),
-    isHide int,
-    collectNum int
-)
+	create table tweet(
+   		id varchar(255) primary key,
+    		userId varchar(255),
+   		title varchar(255),
+    		content varchar(255),
+    		picture varchar(255),
+    		create_time Timestamp,
+    		LikesNum int,
+    		Likes varchar(255),
+    		isHide int,
+    		collectNum int
+	)
 
 
 
