@@ -1,18 +1,21 @@
 # SocialNetwork
 a life sharing website, and
 API developing as following
+# Directory:
+	Target Service;
+	E-R Figure;
+	Current functions;
+	API;
+	SQL;
+	Redis Operation;
 # Target Service: 
 User, Tweet，Reply
 
 # ER design
 ![image](https://user-images.githubusercontent.com/98070161/181100471-79d36514-df85-439e-8306-8e38158491ff.png)
 
-
-# Nowadays function: 
-Tweet Create, Get all in database & Cache and timeline optimaztion
-# Tweet:
-Current structure: 
-Tweet{id, userId, title, content, picture, create_time}
+# Current function: 
+Tweet Create, Get all in database & Cache and timeline optimaztion;
 
 # API:
 
@@ -117,16 +120,36 @@ Tweet{id, userId, title, content, picture, create_time}
     		isHide int,
     		collectNum int
 	)
+	create table tUser(
+   		userId varchar(255) primary key,
+   		username varchar(255),
+    		account varchar(255),
+    		userfans varchar(255),
+        	fansNum int,
+    		create_time Timestamp
+	)
 
-# POSTMAN TestCase:
-	# default userid:123, his fans is user id:456, 789
-	# for easy test, current userFans column is String;
+	delete from tweet;
+	delete from tuser;
+	select * from tweet;
+	select * from tuser;
+	
+	
+
+# POSTMAN TestCase
+	# default userid:123, his fans is user id:456, 789(default in JAVA CODE);
+	# for easy test, current userFans column is varchar in PostgreSQL;
 	POST localhost:8080/tUser/
-	{"userId":"123", "username":"see", "account": "you", userFans:"456"}
+	{"userId":"123", "username":"see", "account": "you"}
 	POST localhost:8080/tweet/
-	{"id":"21111", "userId":"9817", "title":"see", "content": "you","picture":"tomorrow"}
+	{"id":"21111", "userId":"123", "title":"see", "content": "you","picture":"tomorrow"}
 
 
+# redis operation
+	query all the keys:
+	keys * 
+	GET ALL the Tweet s' contents:
+	HGETALL Tweet
 
 
 
