@@ -15,7 +15,8 @@ User, Tweet，Reply
 ![image](https://user-images.githubusercontent.com/98070161/181100471-79d36514-df85-439e-8306-8e38158491ff.png)
 
 # Current function: 
-Tweet Create, Get all in database & Cache and timeline optimaztion;
+	Tweet Create, Get all in database & Cache by timeline optimaztion;
+	User Create;
 
 # API:
 
