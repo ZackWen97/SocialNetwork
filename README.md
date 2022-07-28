@@ -109,24 +109,24 @@ Tweet Create, Get all in database & Cache and timeline optimaztion;
 
 # SQL
 	create table tweet(
-   		id varchar(255) primary key,
-		userId varchar(255),
-   		title varchar(255),
-    		content varchar(255),
-    		picture varchar(255),
-    		create_time Timestamp,
-    		LikesNum int,
-    		Likes varchar(255),
-    		isHide int,
-    		collectNum int
+	id varchar(255) primary key,
+	userId varchar(255),
+	title varchar(255),
+	content varchar(255),
+	picture varchar(255),
+	create_time Timestamp,
+	LikesNum int,
+	Likes varchar(255),
+	isHide int,
+	collectNum int
 	)
 	create table tUser(
-   		userId varchar(255) primary key,
-   		username varchar(255),
-    		account varchar(255),
-    		userfans varchar(255),
-        	fansNum int,
-    		create_time Timestamp
+	userId varchar(255) primary key,
+	username varchar(255),
+	account varchar(255),
+	userfans varchar(255),
+	fansNum int,
+	create_time Timestamp
 	)
 
 	delete from tweet;
