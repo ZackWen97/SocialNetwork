@@ -27,14 +27,10 @@ public class TweetController{
     private RedisTemplate redisTemplate;
     @Autowired
     public TweetDao dao;
-//    private TweetRepository TwRepo;
+    @Autowired
+    public tUserDao userdao;
 
-//    @GetMapping("/tweet")
-//    public String listAll() {
-////        List<Tweet> ListTweet = TwRepo.findAll();
-////        model.addAttribute("listStudents", ListTweet);
-//        return "Tweet";
-//    }
+
 // Tweet
     //get tweet info
     @GetMapping("/tweet/{id}")
@@ -53,40 +49,41 @@ public class TweetController{
     }
     //PostTweet
     @PostMapping("/tweet/")
-    private Tweet newTweet(@RequestBody Tweet newTweet) {
-        String id = String.valueOf(newTweet.getId());
-        String tid = String.valueOf(newTweet.getUserid());
-        String title = newTweet.getTitle();
-        String content = newTweet.getContent();
-        String picture = newTweet.getPicture();
-        Timestamp create_time = newTweet.getCreate_time();
+    private void newTweet(@RequestBody Tweet newTweet) {
+//        String id = String.valueOf(newTweet.getId());
+//        String userId = String.valueOf(newTweet.getUserid());
+//        String title = newTweet.getTitle();
+//        String content = newTweet.getContent();
+//        String picture = newTweet.getPicture();
+//        Timestamp create_time = newTweet.getCreate_time();
+//
+//        String sql = "INSERT INTO tweet (id, userId, title, content, picture, create_time) VALUES (?, ?, ?, ?, ?, ?)";
+//        int result = jdbcTemplate.update(sql, id, userId, title, content, picture, create_time);
+//
+//        if (result > 0) {
+//            System.out.println("Insert successfully.");
+//        }
 
-        String sql = "INSERT INTO test (id, userId, title, content, picture, create_time) VALUES (?, ?, ?, ?, ?, ?)";
-        int result = jdbcTemplate.update(sql, id, tid, title, content, picture, create_time);
+//        return dao.save(newTweet);
 
-        if (result > 0) {
-            System.out.println("Insert successfully.");
-        }
+        if(dao.saveTweet(newTweet)) System.out.println("Successfully");
 
-        return dao.save(newTweet);
     }
     @DeleteMapping("/tweet/{id}")
     public String remove(@PathVariable Long id)   {
         return dao.deleteTweet(id);
     }
-//    @GetMapping("/redis/{key}")
-//    private void TestRedis(@PathVariable String key){
-//        ValueOperations<String, String> vo = redisTemplate.opsForValue();
-//        System.out.println(vo.get(key));
-//
-//    }
-//    @PostMapping("/redis/")
-//    public void setValue(@RequestBody String key, String value) {
-//        ValueOperations<String, Object> vo = redisTemplate.opsForValue();
-//        vo.set(key, value);
-//        redisTemplate.expire(key, 1, TimeUnit.HOURS); // 这里指的是1小时后失效
-//    }
-//    @Autowired
+
+
+
+    //tUser
+    @PostMapping("/tUser/")
+    private tUser newUser(@RequestBody tUser newUser) {
+        return userdao.save(newUser);
+    }
+
+
+
 //    @Autowired
 //    public ProductDao dao1;
 ////

@@ -22,7 +22,7 @@ public class Tweet implements Serializable{
     private String title;
     private String content;
     private String picture;
-    private
+
 
     private Timestamp create_time;
 
@@ -67,9 +67,7 @@ public class Tweet implements Serializable{
     public void setPicture(String picture){
         this.picture = picture;
     }
-    public void setFollowid(List<Integer> followid){
-        this.followid = followid;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -88,7 +86,7 @@ public class Tweet implements Serializable{
     }
     @Override
     public String toString() {
-        return "Tweet {" + "id=" + this.id + '\'' +", tid='" + this.userId + '\''  +", title='" + this.title + '\'' + ", content='" + this.content + '\'' + ", picture='" + this.picture + '\'' + '}';
+        return "Tweet {" + "id=" + this.id + '\'' +", userid='" + this.userId + '\''  +", title='" + this.title + '\'' + ", content='" + this.content + '\'' + ", picture='" + this.picture + '\'' + '}';
     }
 
 
