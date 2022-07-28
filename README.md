@@ -118,7 +118,13 @@ Tweet{id, userId, title, content, picture, create_time}
     		collectNum int
 	)
 
-
+# POSTMAN TestCase:
+	# default userid:123, his fans is user id:456, 789
+	# for easy test, current userFans column is String;
+	POST localhost:8080/tUser/
+	{"userId":"123", "username":"see", "account": "you", userFans:"456"}
+	POST localhost:8080/tweet/
+	{"id":"21111", "userId":"9817", "title":"see", "content": "you","picture":"tomorrow"}
 
 
 
